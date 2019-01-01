@@ -26,7 +26,7 @@ class BoundVector : public vector<type> {
 
       type operator[](int index) const {
          const vector<type>& data = *this;
-         if ((index < 0) || (index >= data.size())) {
+         if ((index < 0) || (index >= static_cast<int>(data.size()))) {
             cerr << "Error: vector index out of range: " << index << endl;
             cerr << "vector size is: " << data.size() << endl;
             exit(1);
@@ -36,7 +36,7 @@ class BoundVector : public vector<type> {
 
       type& operator[](int index) {
          vector<type>& data = *this;
-         if ((index < 0) || (index >= data.size())) {
+         if ((index < 0) || (index >= static_cast<int>(data.size()))) {
             cerr << "Error: vector index out of range: " << index << endl;
             cerr << "vector size is: " << data.size() << endl;
             exit(1);

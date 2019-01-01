@@ -108,7 +108,7 @@ ostream& DatabaseAnalysis::print(ostream& out) {
    for (auto& it : nodes) {
       out << "+ " << it.first << "\t";
       out << (*(it.second.data)) << "\t";
-      out << (unsigned long)(it.second.data) << endl;
+      out << (std::size_t)(it.second.data) << endl;
    }
    out << "==========================\n";
    return out;

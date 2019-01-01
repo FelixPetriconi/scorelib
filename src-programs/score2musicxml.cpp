@@ -2997,21 +2997,8 @@ string getRestType(ScoreItem* si) {
 //
 
 ostream& my_put_time(ostream& out) {
-   struct tm *current;
-   time_t now;
-   time(&now);
-   current = localtime(&now);
-   out << current->tm_year + 1900;
-   out << '-';
-   if (current->tm_mon < 10) {
-      out << '0';
-   }
-   out << current->tm_mon;
-   out << '-';
-   if (current->tm_mday < 10) {
-      out << '0';
-   }
-   out << current->tm_mday;
+   auto now = time(nullptr);
+   out << put_time(localtime(&now), "%Y-%m-%d");
    return out;
 }
 
